@@ -1,0 +1,23 @@
+:root {
+  height: 100vh;
+  width: 100vw;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #23295a;
+  --secondary: #fcbc14;
+  --background: #161616;
+  --darker-background:
+
+    --gray: #828282;
+  --light-gray: #c4c4c4;
+  --lighter-gray: #FAFAFA;
+  --error: #fa5252;
+
+  --green: #8ce99a;
+  --orange: #ffc078;
+  --blue: #74c0fc;
+
+  --cell-border: #5e65b5;
+}
