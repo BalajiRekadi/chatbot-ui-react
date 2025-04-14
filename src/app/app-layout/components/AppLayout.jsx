@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Outlet, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
 import {
   AppShell,
   Flex,
@@ -86,7 +86,7 @@ function AppLayout() {
             ml={16}
           >
             <Text pr={32} size="md" fw={600}>
-              Agentic 1.0
+              PharmaGPT
             </Text>
             <Popover width={200} position="bottom" withArrow shadow="lg">
               <Popover.Target>

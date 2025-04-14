@@ -1,6 +1,6 @@
 const THEME = {
-  defaultRadius: "md",
-  primaryColor: "blue",
+  defaultRadius: "lg",
+  primaryColor: "yellow",
   // white: "#ddd",
   // colors: {
   //   proven: [

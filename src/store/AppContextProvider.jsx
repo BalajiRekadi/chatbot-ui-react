@@ -4,6 +4,7 @@ import { initialState, AppContext } from "./AppContext"
 import { AppReducer } from "./AppReducer"
 
 const AppContextProvider = ({ children }) => {
+  // This reducer is used in this context only to save theme and user data
   const [state, dispatch] = useReducer(AppReducer, initialState)
 
   const setTheme = (theme) => {
