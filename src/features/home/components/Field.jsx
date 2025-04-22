@@ -15,6 +15,7 @@ import { IconPlus, IconWorld, IconBulb, IconArrowUp } from "@tabler/icons-react"
 
 function Field({ onMessageSend, newChat = true }) {
   const theme = useMantineTheme()
+
   const queryForm = useForm({
     mode: "uncontrolled",
     initialValues: {

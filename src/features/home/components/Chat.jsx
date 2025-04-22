@@ -2,20 +2,26 @@
 import React, { useState } from "react"
 
 import { Stack } from "@mantine/core"
-import { useImmer } from "use-immer"
 import Field from "./Field"
 import BubbleStack from "./BubbleStack"
+import useAnswer from "../api/useAnswer"
+import { useImmer } from "use-immer"
 
 function Chat() {
   const [conversation, setConversation] = useImmer([])
+  const { getAnswer, isPending, isError, isSuccess } = useAnswer()
 
-  const onMessageSend = (msg) => {
-    const bubble = { msg, isUser: true, timestamp: new Date() }
-    setConversation(() => {
+  const onMessageSend = async (msg) => {
+    const data = await getAnswer(msg)
+    setConversation((convo) => {
       return [
-        ...conversation,
-        bubble,
-        { msg: "Im good, how can i help you?", isUser: false },
+        ...convo,
+        { msg, isUser: true },
+        {
+          msg: data?.answer?.content,
+          isUser: false,
+          isLoading: true,
+        },
       ]
     })
   }

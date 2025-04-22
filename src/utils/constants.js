@@ -18,6 +18,6 @@ const THEME = {
   // },
 }
 
-const DOMAIN = "http://13.235.98.215:27022"
+const DOMAIN = "http://13.235.98.215:27031/"
 
 export { THEME, DOMAIN }
