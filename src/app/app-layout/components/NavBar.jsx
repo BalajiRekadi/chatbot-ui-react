@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react"
+import React from "react"
 import { Box, Button, Text, Flex, Stack, ActionIcon } from "@mantine/core"
 import { IconPlus, IconSearch } from "@tabler/icons-react"
 import "./app-layout.css"
