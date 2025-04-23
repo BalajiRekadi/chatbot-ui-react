@@ -5,4 +5,19 @@
     background-color: var(--background);
     border: none !important
   }
+
+  .chat-btns {
+    .btn {
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--mantine-color-body);
+      }
+    }
+
+    .inner {
+      justify-self: left;
+    }
+  }
 }

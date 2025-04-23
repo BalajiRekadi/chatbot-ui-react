@@ -20,15 +20,15 @@ function BubbleStack({ conversation = [] }) {
   return (
     <ScrollArea
       w={"100%"}
-      type="scroll"
+      type="always"
       offsetScrollbars
       scrollbarSize={8}
       pr={8}
       viewportRef={viewport}
     >
       <Stack>
-        {conversation.map((bubble) => (
-          <Bubble key={bubble.timestamp} data={bubble} />
+        {conversation.map((bubble, index) => (
+          <Bubble key={index} data={bubble} />
         ))}
       </Stack>
     </ScrollArea>
