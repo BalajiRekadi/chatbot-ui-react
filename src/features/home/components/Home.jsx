@@ -6,7 +6,7 @@ import Chat from "./Chat"
 function Home() {
   return (
     <Paper
-      h={"calc(100vh - 72px)"}
+      h={"calc(100vh - 80px)"}
       bg={"var(--mantine-color-body)"}
       radius={"md"}
       m={16}

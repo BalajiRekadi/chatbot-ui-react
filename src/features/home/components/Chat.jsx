@@ -22,15 +22,28 @@ function Chat() {
       ]
     })
     setIsPending(true)
-    const { answer } = await getAnswer({ isSearchMode, query })
-    setConversation((convo) => {
-      convo.splice(-1, 1, {
-        msg: answer,
-        isUser: false,
+    getAnswer({ isSearchMode, query })
+      .then(({ answer }) => {
+        setConversation((convo) => {
+          convo.splice(-1, 1, {
+            msg: answer,
+            isUser: false,
+          })
+          return convo
+        })
+        setIsPending(false)
       })
-      return convo
-    })
-    setIsPending(false)
+      .catch(() => {
+        setConversation((convo) => {
+          convo.splice(-1, 1, {
+            msg: "Something went wrong, contact Admin.",
+            isError: true,
+            isUser: false,
+          })
+          return convo
+        })
+        setIsPending(false)
+      })
   }
 
   return (

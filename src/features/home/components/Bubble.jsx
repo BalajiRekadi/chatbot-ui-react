@@ -1,26 +1,44 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react"
-import { Flex, Paper, Skeleton, Text, useMantineTheme } from "@mantine/core"
+import {
+  Button,
+  Flex,
+  Paper,
+  Skeleton,
+  Stack,
+  Text,
+  useMantineTheme,
+} from "@mantine/core"
 import Markdown from "react-markdown"
+import { IconAlertTriangle } from "@tabler/icons-react"
 
 function Bubble({ data }) {
   const theme = useMantineTheme()
   return (
     <Flex justify={data.isUser ? "flex-end" : "flex-start"}>
-      <Paper px={16} py={0} bg={data.isUser ? theme.colors.dark[6] : ""}>
-        {!data?.isPending && (
+      {!data?.isPending && !data?.isError && (
+        <Paper px={16} py={0} bg={data.isUser ? theme.colors.dark[6] : ""}>
           <Text fw={500} size="md" py={0}>
             <Markdown>{data?.msg}</Markdown>
           </Text>
-        )}
-        {data?.isPending && (
-          <>
-            <Skeleton height={25} circle mb="sm" />
-            <Skeleton height={8} mt={8} radius="xl" w={240} />
-            <Skeleton height={8} mt={8} radius="xl" w={240} />
-          </>
-        )}
-      </Paper>
+        </Paper>
+      )}
+      {data?.isPending && (
+        <Stack gap={6}>
+          <Skeleton height={25} circle />
+          <Skeleton height={8} radius="xl" w={240} />
+          <Skeleton height={8} radius="xl" w={240} />
+        </Stack>
+      )}
+      {data?.isError && (
+        <Button
+          variant="light"
+          color="red"
+          leftSection={<IconAlertTriangle size={20} />}
+        >
+          {data?.msg}
+        </Button>
+      )}
     </Flex>
   )
 }
